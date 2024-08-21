@@ -34,7 +34,6 @@ def upload_image():
 
 		print(result)
 
-		# Interpret the result
 		prediction = 'This is a dog.' if result[0][0] == 1 else 'This is a cat.'
 
 		return jsonify({"message": "Image uploaded and Detected successfully", "prediction": prediction}), 200
