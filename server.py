@@ -32,15 +32,17 @@ def upload_image():
 		test_image = np.expand_dims(test_image, axis=0)
 		result = model.predict(test_image)
 
-		print(result)
-
 		prediction = 'This is a dog.' if result[0][0] == 1 else 'This is a cat.'
 
-		return jsonify({"message": "Image uploaded and Detected successfully", "prediction": prediction}), 200
+		return jsonify({"ok": true,"message": "Image uploaded and Detected successfully", "prediction": prediction}), 200
 
 	except Exception as e:
 		return jsonify({"message": f"Failed to process image: {str(e)}"}), 500
-
 			
+
+# if __name__ == '__main__':
+#     app.run(debug=True, port=8080)
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+    app.run(debug=True, host='0.0.0.0', port=8080)
+
