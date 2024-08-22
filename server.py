@@ -40,7 +40,7 @@ def upload_image():
 
 	except Exception as e:
 		return jsonify({"message": f"Failed to process image: {str(e)}"}), 500
-			
 
+			
 if __name__ == '__main__':
-    app.run(debug=True, port=3500)
+    app.run(host='0.0.0.0', port=8080)
